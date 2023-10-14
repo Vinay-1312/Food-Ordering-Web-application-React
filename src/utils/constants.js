@@ -1,63 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/*
-Header
-    Logo
-    Nav items
-Body
-    Search
-    restaturant container
-        restaurant cards
-            Img
-            Name of res Name, Cuisines, Rating
-
-Footer
-    copyright
-    Links
-    Address
-    Contact
-
-
-*/
-
-//JSX - HTML like syntax
-// JSX is converted to React.createElment by Pacel. Parcel uses Babel for conversion 
-const Header = () => {
-return (
-<div className="header">
-    <div className="Logocontainer">
-        <img src = "https://mir-s3-cdn-cf.behance.net/project_modules/1400/31858f64574437.5ad6dd7253bb4.jpg" className="Logo" alt="not loaded"></img>
-    </div>
-    <div className="NavItems">
-        <ul>
-            <li> Home</li>
-            <li>About Us</li>
-            <li>Cart</li>
-            <li>Contact us</li>
-        </ul>
-    </div>  
-</div>
-);
-
-}
-
-const RestaurantCard = (resdetails) =>{ 
-    
-    const {title,price,description,category,image,rating} = resdetails.data
-    console.log(image)
-    return (
-        <div className="resCard">
-         <img src = {image} className="foodimg"></img>
-         <h3>{title}</h3>
-         <h4>Rs. {price}</h4>
-         <h4>Rating {rating.rate} Star</h4>
-        </div>
-        
-    );
-}
-
-const productList = [
+export const productList = [
 	{
 		"id": 1,
 		"title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -240,44 +181,9 @@ const productList = [
 	}
 ];
 
-const Body = () => {
-return (
-    <div className="body">
-    <div className="Search">Search
-    </div>
-   
-    <div className="restaurantContainer">
-    {
-        productList.map(restaurant => <RestaurantCard  key={restaurant.id} data={restaurant} />)
-    }
-    
-   
-    </div>
-    </div>
-)
-
-}
-const Footer = () => {
+export const Logo_URL = "https://cdn-icons-png.flaticon.com/512/2771/2771401.png"
 
 
-}
+export const menuAPI = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId="
 
-const AppLayout = () => 
-{
-return (
-< div>
-<Header/>
-<Body/>
-<Footer/>
-
-</div>
-    
-    )
-
-}
-
-
-
-//const heading = React.createElement("h1",{id:"heading"},"Hello from React!");
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
+export const imageURL = "https://media-assets.swiggy.com/swiggy/image/upload/"
